@@ -46,9 +46,9 @@ export class GalleryService {
     }
   }
 
-  async delete(params) {
+  async delete(id) {
     try {
-      const gallery = await this.GallerySchema.findById(params.id);
+      const gallery = await this.GallerySchema.findById(id);
       if (!gallery) throw new BadRequestException('Gallery not found');
 
       if (gallery.images) {
