@@ -9,14 +9,8 @@ export class Gallery {
   @Prop({ type: String })
   description: string;
 
-  @Prop({ type: String })
-  avatar: string;
-
-  @Prop({ type: String })
-  avatarId: string;
-
   @Prop({ type: Array })
-  pictures: [
+  images: [
     {
       url: string;
       publicId: string;
