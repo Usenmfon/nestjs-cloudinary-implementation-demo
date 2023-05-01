@@ -5,7 +5,7 @@ export class CreateGalleryDto {
   @IsString()
   name: string;
 
-  @IsOptional()
+  @IsNotEmpty()
   @IsString()
   description?: string;
 

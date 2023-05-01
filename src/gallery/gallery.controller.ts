@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { GalleryService } from './gallery.service';
 import { CreateGalleryDto } from './dto';
-import { FileInterceptor } from '@nestjs/platform-express';
+import { FilesInterceptor } from '@nestjs/platform-express';
 import { Types } from 'mongoose';
 
 @Controller('gallery')
@@ -23,7 +23,7 @@ export class GalleryController {
   }
 
   @Post()
-  @UseInterceptors(FileInterceptor('images'))
+  @UseInterceptors(FilesInterceptor('images'))
   async createGallery(
     @Body() dto: CreateGalleryDto,
     @UploadedFiles() files: Express.Multer.File[],
