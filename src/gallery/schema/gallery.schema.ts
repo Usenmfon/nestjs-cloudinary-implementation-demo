@@ -10,12 +10,7 @@ export class Gallery {
   description: string;
 
   @Prop({ type: Array })
-  images: [
-    {
-      url: string;
-      publicId: string;
-    },
-  ];
+  images: [];
 }
 
 export type GalleryDocument = HydratedDocument<Gallery>;
