@@ -3,6 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Connection } from 'mongoose';
 import * as dotenv from 'dotenv';
 import { GalleryModule } from './gallery/gallery.module';
+import { ProfileModule } from './profile/profile.module';
 
 dotenv.config();
 @Module({
@@ -13,6 +14,7 @@ dotenv.config();
       },
     }),
     GalleryModule,
+    ProfileModule,
   ],
 })
 export class AppModule {}
