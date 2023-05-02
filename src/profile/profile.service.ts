@@ -15,19 +15,16 @@ export class ProfileService {
   async getProfile(id) {
     return this.ProfileSchema.findOne({ _id: id })
       .then(async (user) => {
-        if (!user) {
-          throw new BadRequestException('Profile not found');
-        }
         return user;
       })
-      .catch((e) => {
-        throw new BadRequestException(e.message);
+      .catch(() => {
+        throw new BadRequestException('Profile not found');
       });
   }
 
   async create(dto: CreateProfileDto, file: Express.Multer.File) {
     try {
-      const user = await this.ProfileSchema.find({ email: dto.email });
+      const user = await this.ProfileSchema.findOne({ email: dto.email });
       if (user) {
         throw new BadRequestException('Email already exists');
       }
